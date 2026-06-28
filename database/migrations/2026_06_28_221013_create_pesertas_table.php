@@ -11,22 +11,22 @@ return new class extends Migration
      */
     public function up(): void
 {
-    Schema::create('admin_sekolahs', function (Blueprint $table) {
-        $table->id('id_admin');
-        $table->string('nama', 150);
+    Schema::create('pesertas', function (Blueprint $table) {
+        $table->id('id_peserta');
+        $table->string('nama_lengkap', 150);
+        $table->text('alamat');
+        $table->string('tempat_lahir', 100);
+        $table->date('tanggal_lahir');
         $table->string('no_hp', 20);
-        $table->text('alamat')->nullable();
-        $table->string('username', 50)->unique();
-        $table->string('password');
+        $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
         $table->timestamps();
     });
-}
-
+}       
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('admin_sekolahs');
+        Schema::dropIfExists('pesertas');
     }
 };

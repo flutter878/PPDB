@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class AdminSekolah extends Model
+class AdminSekolah extends Authenticatable
 {
-    //
+    protected $primaryKey = 'id_admin';
+    protected $guarded = [];
+    protected $hidden = ['password', 'remember_token'];
 }
